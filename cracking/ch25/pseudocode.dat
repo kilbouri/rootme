@@ -1,0 +1,24 @@
+// This function seems to be unpacking the correct password from a jumble of bytes in .data.
+std::string *__userpurge decipher_password@<eax>(
+        std::string *ret_val,
+        std::string *cipher_text,
+        std::string *cipher_key)
+{
+  char curr_char; // si
+  unsigned int key_len; // eax
+  _BYTE *curr_byte_ptr; // eax
+  char ret_val_len; // [esp+1Bh] [ebp-1Dh] BYREF
+  unsigned int curr_index; // [esp+1Ch] [ebp-1Ch] MAPDST
+
+  std::allocator<char>::allocator(&ret_val_len);// allocating the return value?
+  std::string::string(ret_val, &maybe_packed_data_beginning, &ret_val_len);
+  std::allocator<char>::~allocator(&ret_val_len);
+  for ( curr_index = 0; *(_BYTE *)std::string::operator[](cipher_text, curr_index); ++curr_index )
+  {
+    curr_char = *(_BYTE *)std::string::operator[](cipher_text, curr_index);
+    key_len = std::string::length(cipher_key);
+    curr_byte_ptr = (_BYTE *)std::string::operator[](cipher_key, curr_index % key_len);
+    std::string::operator+=(ret_val, curr_char ^ *curr_byte_ptr);
+  }
+  return ret_val;
+}
