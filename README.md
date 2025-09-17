@@ -12,6 +12,7 @@ My working files and solutions to [rootme](https://www.root-me.org/en) puzzles, 
 - x86 ISA reference - [coder32](http://ref.x86asm.net/coder32.html)
 - x86_64 ISA reference - [coder64](http://ref.x86asm.net/coder64.html)
 - ARM ISA reference - [arm-cheatsheet by oowekyala](https://github.com/oowekyala/arm-cheatsheet/blob/master/arm-cheatsheet.pdf)
+- MIPS ISA reference - [mips-ref.pdf from cburch](https://www.cburch.com/cs/330/reading/mips-ref.pdf)
 
 ## Cracking
 
